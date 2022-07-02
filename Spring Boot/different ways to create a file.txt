@@ -1,0 +1,4 @@
+using spring initializer
+using spring starter project on STS (eclipse)
+spring boot cli 
+    the spring boot cli is a command line tool that you can use if you want to quickly develop a spring application .
