@@ -11,12 +11,27 @@ const http = require('http');
 
 const port = 8000;
 //whenevr we write google.com it sends in a request to port no 80 by default and will get some data back to you , similarly any piece of sofware that is running on your system is running on a specific port . port is a logical term instead of physically defined . 
+
+const fs = require('fs');
+//why am i declaring a constant , to read this index.js file we need something that can read and write files 
+//there is a module built into nodejs which is called fs and is used for reading writing into files 
  
 
 function requestHandler(req,res){
     console.log(req.url);
     res.writeHead(200,{'content-type': 'text/html'});
-    res.end('<h1>gotcha</h1>');
+
+    fs.readFile('./index.html', function(err,data){
+        //fs is file system , above fs is module (line no 15) 
+        //readFile is an inbult synchronous function 
+        //err displayes error and data represents the file data 
+        if(err){
+            console.log('error',err);
+            return res.end('error')
+        }
+        return res.end(data);
+    });//the first arguement it takes is the path of this file we are going to declare 
+    // res.end('<h1>gotcha</h1>');
 }
 
 const server = http.createServer(requestHandler);
