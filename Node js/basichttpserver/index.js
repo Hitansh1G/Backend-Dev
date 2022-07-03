@@ -11,11 +11,15 @@ const http = require('http');
 
 const port = 8000;
 //whenevr we write google.com it sends in a request to port no 80 by default and will get some data back to you , similarly any piece of sofware that is running on your system is running on a specific port . port is a logical term instead of physically defined . 
+ 
 
+function requestHandler(req,res){
+    console.log(req.url);
+    res.writeHead(200,{'content-type': 'text/html'});
+    res.end('<h1>gotcha</h1>');
+}
 
-
-
-const server = http.createServer();
+const server = http.createServer(requestHandler);
 
 
 server.listen(port,function(err){
