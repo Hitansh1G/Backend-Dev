@@ -43,7 +43,7 @@ server.listen(port,function(err){
         console.log(err);
         return;
     }
-    console.log("Server is up and runnign on port ", port);
+    console.log("Server is up and runnign on port lalal ", port);
 });
 
 
