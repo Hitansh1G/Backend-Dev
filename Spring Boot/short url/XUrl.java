@@ -1,4 +1,4 @@
-Spring Boot/short url/
+// Spring Boot/short url/
 
 public interface XUrl {
   // If longUrl already has a corresponding shortUrl, return that shortUrl
