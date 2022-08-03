@@ -1,0 +1,3 @@
+Use Database, file storage, cloud storage to persist the data.
+
+Persistence is "the continuance of an effect after its cause is removed". In the context of storing data in a computer system, this means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage.
