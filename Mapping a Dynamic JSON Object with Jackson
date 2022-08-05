@@ -1,0 +1,8 @@
+INTRODUCTION 
+
+    Working with predefined JSON data structures with Jackson is straightforward. However, sometimes we need to handle dynamic JSON objects, which have unknown properties.
+
+
+Using JsonNode
+
+    refer - href( https://www.baeldung.com/jackson-mapping-dynamic-object )
