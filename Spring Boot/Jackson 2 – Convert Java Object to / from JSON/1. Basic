@@ -1,0 +1,25 @@
+1.1 Convert a Staff object to from JSON.
+
+writeValue(...) – Java Objects to JSON
+
+
+	ObjectMapper mapper = new ObjectMapper();
+
+	// Java object to JSON file
+	mapper.writeValue(new File("c:\\test\\staff.json"), new Staff());
+
+	// Java object to JSON string
+	String jsonString = mapper.writeValueAsString(object);
+readValue(...) – JSON to Java Objects
+
+
+	ObjectMapper mapper = new ObjectMapper();
+
+	//JSON file to Java object
+	Staff obj = mapper.readValue(new File("c:\\test\\staff.json"), Staff.class);
+
+	//JSON URL to Java object
+	Staff obj = mapper.readValue(new URL("http://some-domains/api/name.json"), Staff.class);
+
+	//JSON string to Java Object
+	Staff obj = mapper.readValue("{'name' : 'mkyong'}", Staff.class);
