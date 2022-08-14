@@ -1,0 +1,127 @@
+Structure of Java Program
+Let’s begin the debrief by talking about our observations on how a simple Java program is structured.
+
+main() method
+The first thing we observe is the presence of a main() method with some arguments. Those of you who have programmed in C/C++ will surely recognize this construct. In Java, as in the C family languages, the main method is the entry point to the program. We can pass arguments from the command line to the main method - since main is the entry point to the application, it can also serve as arguments to the application itself. In our case, we are passing the string trades.json to the program which we interpret as a filename and proceed with our logic.
+
+
+public static void main(String[] args) {}
+
+What is interesting though is that the main() method has a public access specifier and a static modifier applied to it. What this means is that Java does it’s main application file to be an object to call the main method - this is intentional as the main method is being called from an area external to the program.
+Note: Though we spoke of the main method being the entry point to the program, we can technically execute code even before it. This is done through static blocks. We will leave you with a question: how is it running before the main() method?
+
+Public, private and protected
+These terms are called access specifiers in Java. They control visibility of member fields and methods to entities outside the class that defines them.
+public: Class members are accessible everywhere.
+private: Class members are not visible outside the class.
+protected: Class members are visible only to it’s child classes.
+Food for thought: Why do you even need access specifiers? What’s the point?
+
+Constructor
+A constructor is a special member function defined inside a class. It has the same name as the class, and is called when the object is constructed with the "new" keyword. It generally serves the purpose of defining values for the declared member fields, and is normally defined with the public access specifier. Refer to PortfolioTrade.java, you should be able to see the public constructor for that class.
+Food for thought: Can you have a private access specifier on a constructor?
+
+Class and variable names, and other conventions
+Java uses camel case as it’s naming convention. Can you start class names with smaller case? Yes, but you shouldn’t. While this is probably the most easily noticeable convention, there are others that are officially recommended. Refer to this link to know more: Google Java Style Guide
+Serialization and Deserialization
+Let us begin with the with the definition:
+Serialization is the process of translating data structures or object state into a format that can be stored or transmitted and reconstructed later. [src]
+Computers (programs, in general) need a common way to talk to each other. For example: How would a Java program talk to some functionality written in C++? How would an app on your mobile phone communicate what it needs to a server in a different country? If you've used databases, how does a Java program read something from a database (where data might be stored in a completely different format)? Serialization is one of the ways to achieve this. The format that can be stored or transmitted referred to in the definition above - that format is JSON in our use case.
+Deserialization is the reverse process. In our use-case, we accept an incoming JSON and convert it to a Java object.
+Role of Jackson
+Jackson is a library that is popularly used for serialization/deserialization in Java.
+
+Jackson Annotations
+We have a fair understanding of the relationship between JSON and Java serialization / deserialization. What if:
+the JSON being sent is missing a field?
+What if it has an extra field?
+What if we want to map a key with a different name to a particular field?
+
+We can do these things through Jackson annotations. Think of them as modifying the rules with which Java does serialization/deserialization.
+
+For example, let’s say we have a new member variable in PortfolioTrade.java which tracks the time of trade along with the date. How do we exclude this variable from the serialized data?
+
+The @JsonIgnore annotation comes in handy. There are several annotations that can tell Jackson to customize the serialization/deserialization process. Refer to Jackson Annotation Examples for more information.
+
+ObjectMapper
+In which part of the code is serialization/deserialization actually done?
+How does PortfolioManagerApplicationTest.java actually verify that the conversion to/from JSON was done correctly?
+
+We can gain an understanding by peeking into the code of PortfolioManagerApplicationTest.java.
+
+Digging into the code and following the methods it calls in the application, we come to see it uses something called as ObjectMapper. It uses two very important classes of methods.
+ObjectMapper().readX(..), and
+ObjectMapper().writeX(..)
+
+Let us focus on the read class of methods. The actual method ObjectMapper uses is:
+
+
+readValue(String content, Class<T> valueType)
+
+It accepts a String and a Class as parameters. The method looks at the content JSON and then deserializes into an object of type specified by the Java generic Class<T>.
+
+The write methods perform the similar process in reverse.
+Setters and Getters
+Okay, so we have fields to hold the data that is needed. But if we notice, all the fields have an access modifier of private, so how exactly is this set?
+We generate getters and setters for every field. We can do this in two ways:
+One is by getting your IDE(VSCode) to do it for us through a shortcut.
+The other popular way is to use a library called Lombok. Lombok is very helpful as it assists in generating all the boilerplate code that is necessary. For example, by marking a class with @Data annotation, it will automatically generate all the required getters and setters.
+
+In doing so, while serializing and deserializing, Java will get and set the appropriate values from the class. We don’t have to call the getters or setters explicitly as it is already taken care of.
+Looking at our PortfolioTrade class, we have:
+
+
+public class PortfolioTrade {
+
+ public PortfolioTrade() {  }
+
+ public static enum TradeType {
+   BUY,
+   SELL
+ }
+
+ private String symbol;
+ private int quantity;
+ private TradeType tradeType;
+ private LocalDate purchaseDate;
+
+ public PortfolioTrade(String symbol, int quantity, LocalDate purchaseDate) {
+   this.symbol = symbol;
+   this.quantity = quantity;
+   this.purchaseDate = purchaseDate;
+   this.tradeType = TradeType.BUY;
+ }
+
+ public void setSymbol(String symbol) {
+   this.symbol = symbol;
+ }
+
+ public void setQuantity(int quantity) {
+   this.quantity = quantity;
+ }
+
+ public void setTradeType(TradeType tradeType) {
+   this.tradeType = tradeType;
+ }
+
+ public void setPurchaseDate(LocalDate purchaseDate) {
+   this.purchaseDate = purchaseDate;
+ }
+
+ public String getSymbol() {
+   return symbol;
+ }
+
+ public int getQuantity() {
+   return quantity;
+ }
+
+ public LocalDate getPurchaseDate() {
+   return purchaseDate;
+ }
+
+ public TradeType getTradeType() {
+   return tradeType;
+ }
+
+}
