@@ -1,0 +1,15 @@
+When code breaks, the only thing that comes to mind is to fix it, and move on. More often than not, "fixing" something without knowing how it was fixed leads to errors down the line. The idea is to have a systematic approach to debugging. Making deliberate progress at every stage of debugging gives us confidence that we are looking at the right areas and not just trying something with a hope for it to work.
+To achieve this, the following approach will help:
+Initial observation
+What is the manifestation?
+Hypothesis
+What are some reasons why this may happen?
+Prediction
+Based on your hypothesis, what’s your predicted output for a specific input
+Experiment
+Design an experiment to prove your prediction right/wrong.
+Observation
+Accept -> Support refine
+Reject -> Create new
+Repeat Loop
+Narrow down the possibilities of error using this structured technique and be assured to move closer to the solution of your problem.
