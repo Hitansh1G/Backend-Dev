@@ -1,0 +1,22 @@
+You can send a request with any programming language. JavaScript users can use methods like the Fetch API and jQuery’s Ajax method; Ruby users can use Ruby’s Net::HTTP class, Python users can use Python Requests; and so on.
+
+For this article, we’ll use the command line utility called cURL. We use cURL because API documentations are normally written with reference to cURL. If you understand how to use cURL, you’ll have no problems understanding API documentations. Then, you can easily perform requests with your preferred language.
+
+Before you continue, you’ll want to make sure you have cURL installed on your machine. Open up your Terminal and type curl -version. This command checks the version of cURL you have installed on your system.
+curl --version
+
+To use cURL, you type curl, followed by the endpoint you’re requesting for. For example, to get Github’s root endpoint, you type the following:
+
+curl https://api.github.com
+
+To get a list of a user’s repositories, you modify the endpoint to the correct path, like what we discussed above. To get a list of my repositories, you can use this command:
+
+curl https://api.github.com/users/zellwk/repos
+
+If you wish to include query parameters with cURL, make sure you prepend a backslash (\) before the ? and = characters. This is because ? and = are special characters in the command line. You need to use \ before them for the command line to interpret them as normal characters:
+
+curl https://api.github.com/users/zellwk/repos\?sort\=pushed
+
+Try using either commands and perform a request! You’ll get a similar response to what you’ve seen with Github’s root-endpont (but with a lot more data).
+
+
