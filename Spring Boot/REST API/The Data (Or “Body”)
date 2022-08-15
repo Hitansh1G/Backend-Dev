@@ -1,0 +1,20 @@
+The data (sometimes called “body” or “message”) contains information you want to be sent to the server. This option is only used with POST, PUT, PATCH or DELETE requests.
+
+To send data through cURL, you can use the -d or --data option:
+
+curl -X POST <URL> -d property1=value1
+
+
+To send multiple data fields, you can create multiple -d options:
+
+curl -X POST <URL> -d property1=value1 -d property2=value2
+
+
+If it makes sense, you can break your request into multiple lines \ to make it easier to read:
+
+curl -X POST <URL> \
+  -d property1=value1 \
+  -d property2=value2
+
+
+  
