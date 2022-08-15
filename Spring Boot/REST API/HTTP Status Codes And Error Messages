@@ -1,0 +1,11 @@
+Some of the messages you’ve received earlier, like “Requires authentication” and “Problems parsing JSON” are error messages. They only appear when something is wrong with your request. HTTP status codes let you tell the status of the response quickly. The range from 100+ to 500+. In general, the numbers follow the following rules:
+
+200+ means the request has succeeded.
+300+ means the request is redirected to another URL
+400+ means an error that originates from the client has occurred
+500+ means an error that originates from the server has occurred
+You can debug the status of a response with the verbose option (-v or --verbose) or the head option (-I or --head).
+
+For example, if you tried adding -I to a POST request without providing your username and password, you’ll get a 401 status code (Unauthorized)
+If your request is invalid because your data is wrong or missing, you usually get a 400 status code (Bad Request).
+
