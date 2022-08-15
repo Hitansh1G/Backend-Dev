@@ -1,0 +1,32 @@
+What are HTTP Request Methods?
+You’d have seen how HTTP can be used to fetch resources eg: for loading a website. How would we use HTTP to
+Upload data to the server eg: Add profile picture to facebook
+Update some data present in the server eg: Change your facebook display name
+Delete some data present in the server eg: Remove contact information from facebook
+
+As listed above there are a variety of use cases and HTTP provides different request methods for each. Let’s look at the frequently used methods.
+
+        GET
+GET requests are used to “get” resources from a server. By definition, GET requests should only fetch data from the server and shouldn’t change the data stored on the server.
+
+Check the requests made when you visit https://gitlab.crio.do/users/sign_in (copy-paste enter URL as such) in Incognito. If we check the first request made, it’s for a resource of type document which is the HTML file. Use the Preview tab to see the HTML rendered. Is it missing something?
+
+Goto the Response tab & you’ll be able to see the raw HTML data. You’ll be able to see <img> tags. Why aren't the images showing up in the Preview tab then?
+
+We need a separate HTTP request for fetching any related files (image, css, javascript) the HTML needs.
+
+Find out an image included in the HTML (look for <img> tags). Can you see a HTTP request for that resource?
+
+        POST
+POST requests are used to send some data to the server. Some use cases are to submit data from a web form or to upload a file to the server.
+
+Assuming you’re still at https://gitlab.crio.do/users/sign_in, try to Sign in using some invalid credentials. Inspect the request sent now. How does it differ from what we had when we visited the web page?
+
+Scroll down in the Headers tab to find the form data you filled which was sent along with the HTTP request.
+
+        PUT
+PUT requests are used to update data on the server side. This could be for actions like changing your Facebook relationship status, updating a student’s marks on the college server after improvement exams etc.
+
+Visit https://gitlab.crio.do/ and login using Google sign-in if you haven’t already. Open the DevTools Networks tab and ensure you’ve the Preserve log option checked.
+
+
