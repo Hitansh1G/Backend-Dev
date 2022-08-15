@@ -1,0 +1,28 @@
+cURL is like a web-browser, but for the command line.You can make HTTP requests using cURL just like in a web-browser. The Response can be seen on the command line or redirected to a file.
+
+Open a new terminal window and enter the following commands. Take your time and observe the output of each step closely.
+Type the following curl command:
+curl -X GET https://www.flipkart.com -o ~/flipkart.html
+The output of the curl command goes to a file called flipkart.html. You can type  more ~/flipkart.html or cat ~/flipkart.html to see the contents of flipkart.html file.
+In the above curl request, -X allows you to specify the HTTP method to be  used.
+You don’t have to use the -X GET switch => it is the default behaviour. Try the following command:
+
+
+curl https://www.flipkart.com
+curl can give you the same details that you were looking at, in the Chrome Developer Tools.
+
+Try the below exercises and inspect the content of the flipkart.html file
+curl -X GET http://www.flipkart.com -o flipkart.html
+You should see the 301 Moved Permanently reponse; just like in Chrome Developer Tools
+We can also print the HTTP Response Headers using this:
+curl -i -X GET http://www.flipkart.com -o flipkart.html
+Now, you should see the full Response Headers as well.
+If you also want the full details, try the following command:
+curl -v -X GET http://www.flipkart.com -o flipkart.html
+A verbose log is printed. You can get the IP Address and the port number from the console output this time.
+You can also instruct curl to follow the Redirect uRL automatically using the -L switch
+
+
+curl -v -L -X GET http://www.flipkart.com -o flipkart.html    # still using http and not https
+
+Can you find out other capabilities of cURL?
