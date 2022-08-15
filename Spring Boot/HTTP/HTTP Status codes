@@ -1,0 +1,11 @@
+What are HTTP Status Codes?
+HTTP Status codes are part of the HTTP Response. It helps the client understand what happened to the request.
+Status codes are 3 digit numbers (201, 304 etc) and are categorised to 5 different families based on their starting digit.
+Along with the status code, a Reason-Phrase is also present (OK, Moved Permanently etc) which gives a short description of the status code.
+The Status Code is intended for machines whereas Reason-Phrase is for humans.
+
+
+Status codes - 2xx
+The 2xx family of status codes or status codes 200-299 signifies the HTTP request was successfully received & understood by the server. We’ve been seeing the 200 status codes all the way until now. That’s what we get when the server returns some resource for our request.
+Status codes - 3xx
+3xx family of status codes denotes that further action must be taken to complete the HTTP request made.
