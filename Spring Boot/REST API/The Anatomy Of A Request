@@ -1,0 +1,30 @@
+It’s important to know that a request is made up of four things:
+
+The endpoint
+The method
+The headers
+The data (or body)
+The endpoint (or route) is the url you request for. It follows this structure:
+
+root-endpoint/?
+Copy
+The root-endpoint is the starting point of the API you’re requesting from. The root-endpoint of Github’s API is https://api.github.com while the root-endpoint Twitter’s API is https://api.twitter.com.
+
+The path determines the resource you’re requesting for. Think of it like an automatic answering machine that asks you to press 1 for a service, press 2 for another service, 3 for yet another service and so on.
+
+You can access paths just like you can link to parts of a website. For example, to get a list of all posts tagged under “JavaScript” on Smashing Magazine, you navigate to https://www.smashingmagazine.com/tag/javascript/. https://www.smashingmagazine.com/ is the root-endpoint and /tag/javascript is the path.
+
+To understand what paths are available to you, you need to look through the API documentation. For example, let’s say you want to get a list of repositories by a certain user through Github’s API. The https://docs.github.com/en/rest/repos#list-user-repositories tells you to use the the following path to do so:
+
+/users/:username/repos
+
+Any colons (:) on a path denotes a variable. You should replace these values with actual values of when you send your request. In this case, you should replace :username with the actual username of the user you’re searching for. If I’m searching for my Github account, I’ll replace :username with zellwk.
+
+The endpoint to get a list of my repos on Github is this:
+
+https://api.github.com/users/zellwk/repos
+
+The final part of an endpoint is query parameters. Technically, query parameters are not part of the REST architecture, but you’ll see lots of APIs use them. So, to help you completely understand how to read and use API’s we’re also going to talk about them. Query parameters give you the option to modify your request with key-value pairs. They always begin with a question mark (?). Each parameter pair is then separated with an ampersand (&), like this:
+
+?query1=value1&query2=value2
+
