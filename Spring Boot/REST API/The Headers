@@ -1,0 +1,19 @@
+Headers are used to provide information to both the client and server. It can be used for many purposes, such as authentication and providing information about the body content. You can find a list of valid headers on MDN’s https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+
+HTTP Headers are property-value pairs that are separated by a colon. The example below shows a header that tells the server to expect JSON content.
+
+"Content-Type: application/json". Missing the opening ".
+
+You can send HTTP headers with curl through the -H or --header option. To send the above header to Github’s API, you use this command:
+
+curl -H "Content-Type: application/json" https://api.github.com
+
+
+(Note: the Content-Type header is not a requirement for Github’s API to work. This is only an example to illustrate how to use a header with cURL).
+
+To view headers you’ve sent, you can use the -v or --verbose option as you send the request, like this:
+
+curl -H "Content-Type: application/json" https://api.github.com -v
+
+
+Here, * refers to additional information provided by cURL. > refers to request headers, and < refers to the response headers.
