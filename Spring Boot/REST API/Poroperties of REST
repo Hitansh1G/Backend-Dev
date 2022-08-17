@@ -3,3 +3,37 @@ stateless
 cacheable
 uniform interfce 
 layered system
+
+what do you mean by stateless ?
+whenever we put a request it wont be storing any information , it wont be having any state
+
+cacheable - 
+it is to avoid mutiple calls to the same data
+you have some of the data that can be cached like item details
+if we want those item details again .. they can be cachable
+chrome tool has an ability to disable cache
+
+Auth n Auth-
+
+authorization and authentication
+authentication - 
+    use your id card to prove that you the real person / same person 
+        username , password , may be access token 
+
+authorization  
+    show the special pass provided by your comapny to enter server room
+        roles
+        groups
+        role based access 
+
+
+steps to follow to authorise yourself on any website/ rest api provider 
+    register uourself , username , password 
+    subscirbe to an appro plan so that your requests are authorised 
+        
+
+
+
+
+
+
