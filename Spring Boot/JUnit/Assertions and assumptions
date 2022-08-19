@@ -1,0 +1,17 @@
+JUnit 5 comes with multiple assert statements, which allows you to test your code under test. Simple assert statements like the following allow to check for true, false or equality. All of them are static methods from the org.junit.jupiter.api.Assertions.* package.
+
+Assert statement	Example
+assertEquals
+assertEquals(4, calculator.multiply(2, 2),"optional failure message");
+assertTrue
+assertTrue('a' < 'b', () → "optional failure message");
+assertFalse
+assertFalse('a' > 'b', () → "optional failure message");
+assertNotNull
+assertNotNull(yourObject, "optional failure message");
+assertNull
+assertNull(yourObject, "optional failure message");
+Messages can be created via lambda expressions, to avoid the overhead in case the construction of the message is expensive.
+
+assertTrue('a' < 'b', () -> "Assertion messages can be lazily evaluated -- "
+                + "to avoid constructing complex messages unnecessarily.");
