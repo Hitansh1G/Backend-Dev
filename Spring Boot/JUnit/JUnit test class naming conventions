@@ -1,0 +1,12 @@
+Build tools like Maven use a pattern to decide if a class is a test classes or not. The following is the list of classes Maven considers automatically during its build:
+
+**/Test*.java           
+**/*Test.java           
+**/*Tests.java          
+**/*TestCase.java   
+    
+includes all of its subdirectories and all Java filenames that start with Test.
+includes all of its subdirectories and all Java filenames that end with Test.
+includes all of its subdirectories and all Java filenames that end with Tests.
+includes all of its subdirectories and all Java filenames that end with TestCase.
+Therefore, it is common practice to use the Test or Tests suffix at the end of test classes names

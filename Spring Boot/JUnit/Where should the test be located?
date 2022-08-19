@@ -1,0 +1,6 @@
+Typical, unit tests are created in a separate source folder to keep the test code separate from the real code. The standard convention from the Maven and Gradle build tools is to use:
+
+src/main/java - for Java classes
+
+src/test/java - for test classes
+
