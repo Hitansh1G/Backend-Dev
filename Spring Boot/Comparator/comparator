@@ -1,0 +1,45 @@
+omparator
+We had an array/arraylist of our own class type: AnnualizedReturns containing fields like:
+annualizedreturns,
+symbol,
+totalReturns
+
+How do we efficiently sort the array based on annualizedreturns?
+There are different ways to do this:
+
+One obvious approach is to write our own sort() function using one of the standard algorithms.
+This solution requires rewriting the whole sorting code for different criteria like annualizedReturns.
+Obviously we will not focus on it, as it is not the Java way.
+Using comparator interface
+
+Comparator interface is used to order the objects of the user-defined class.
+You can implement the compareTo function and later use Collections.sort in order to sort the collection.
+https://howtodoinjava.com/java/collections/java-comparator/
+
+
+Use Comparator.comparing()
+This approach is even simpler.
+You can use Comparator.comparing() function where you don't even have to write a single line of comparison logic.
+Your class need not be comparable and you don’t have to write any comparator.
+You are leveraging some predefined Java APIs to do the magic.
+
+https://www.webucator.com/how-to/how-use-the-comparatorcomparing-method-java-8.cfm
+
+
+JUnit tests
+Whenever you are writing any new code, it's absolutely necessary that the code you wrote earlier is working absolutely fine.
+
+Also there are several cases where your code is not yet production ready, but you still want to test whether its working fine.
+
+Junit is a library that lets you do that. You can write your logic and test it in isolation with other components.
+
+Did we use it here?
+Before implementing the full calculation, we implemented a small piece of logic, and tested it from isolation with another program using a gradlew command. That helped us give confidence upon the calculation logic we had built.
+Software is nothing but a combination of multiple such tiny working components combined together as a system.
+In the upcoming modules, you will use more such unit tests to test your code in isolation, just to gain the confidence on the small components, before they fit into the big system. Keep an eye on it!
+
+
+
+https://dzone.com/articles/junit-tutorial-setting-up-writing-and-running-java-1
+
+https://jenkov.com/tutorials/java/math-operators-and-math-class.html
