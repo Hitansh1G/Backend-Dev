@@ -1,0 +1,15 @@
+JUnit 5 allows to use static imports for its assertStatements to make the test code short and easy to read. Static imports are a Java feature that allows fields and methods defined in a class as public static to be used without specifying the class in which the field is defined.
+
+JUnit assert statements are typically defined as public static to allow the developer to write short test statements. The following snippet demonstrates an assert statement with and without static imports.
+
+// without static imports you have to write the following statement
+import org.junit.jupiter.api.Assertions;
+// more code
+Assert.assertEquals("10 x 5 must be 50", 50, tester.multiply(10, 5));
+
+
+// alternatively define assertEquals as static import
+import static org.junit.jupiter.api.Assertions.assertEquals;
+// more code
+// use assertEquals directly because of the static import
+assertEquals(calculator.multiply(4,5), 20, "Regular multiplication should work");
