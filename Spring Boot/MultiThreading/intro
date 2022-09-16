@@ -1,0 +1,57 @@
+to create a thread 
+Thread t1= new thread();
+this is the project of thread
+
+now this thread is responsible to covert the array 
+
+but the thread doesnt know wht to do 
+so you will have to make a class 
+
+class mythread
+{
+    int[]values = {6,5,1,7,8};
+    public void run(){
+        for(int i=0 ; i<5 ; i++){
+            values[i]=values[i]*2;
+        }
+    }
+}
+
+
+but to achieve the true power of threads you can not make a simple thread , your class should be a thread 
+
+Thread t1 = new mythread();
+t1.run();
+
+
+class mythread extends Thread
+{
+    int[]values = {6,5,1,7,8};
+    public void run(){
+        for(int i=0 ; i<5 ; i++){
+            values[i]=values[i]*2;
+        }
+    }
+}
+so we have a main thread here , but parallaly if i want to start a new thread you have to sat start
+run will not create a new thread for you you will have to say start method 
+thread has multiple methods , you can call a method called sleep 
+sleep - you are runniung a thread and you want to wait for 2 sec or 3 sec or more or less 
+weight-
+stop-
+etc
+
+if a class is already extended by another class we cant use extend Thread 
+
+class A{
+    
+}
+class mythread extends A implements Runnable
+{
+    int[]values = {6,5,1,7,8};
+    public void run(){
+        for(int i=0 ; i<5 ; i++){
+            values[i]=values[i]*2;
+        }
+    }
+}
